@@ -4,7 +4,7 @@ Ein **wiederverwendbares Claude-Code-Setup** für **Spec-Driven *Design*** — o
 konkretes Repo. Der Scope ist bewusst **Design**: informierte UX (durch Research & Daten) und
 **divergente visuelle Exploration** statt eines dev-fertigen Prototyps.
 
-**Vorbau (einmal):** `specs/briefing.md` (User) → `/roadmap` → `specs/roadmap.md`
+**Vorbau (einmal):** `/setup-design-workspace` (Quellen-Onboarding) → `specs/briefing.md` (User) → `/roadmap` → `specs/roadmap.md`
 **Design-Loop (pro Roadmap-Item):**
 `research-design → brainstorm-design → spec-design → explore-design → implement-design → verify-design`
 → optional `handoff-design` (saubere Dev-Übergabe, **außerhalb** des Loops)
@@ -49,18 +49,18 @@ Updates: neue Skills/Agents hier pushen, dann `claude plugin update design-toolk
 ## In einen Design-Workspace einsetzen
 
 1. Plugin installieren (s. o.) — Skills und Advisors sind damit überall verfügbar.
-2. **Quellen verlinken statt duplizieren** (am Anfang, in `<workspace>/.claude/PROJECT-CONTEXT.md`):
-   **Produkt-Repo / Code-Quelle** (echte Komponenten, DS-Tokens, Texte), **Design-System**,
-   **Content-Guidelines**. Das Produkt-Repo darf ein **separates** Repo sein (als zusätzliche
-   Working-Dir registrieren).
-3. Nur falls eine Quelle fehlt, die **3 projektspezifischen Dateien** inhaltlich füllen
-   (Template-Stubs unter `docs/` — die Skills/Advisors fragen aktiv nach, wenn die Dateien
-   fehlen oder noch Stubs sind):
-   - `PROJECT-CONTEXT.md` — Stack, Pfade, Quellen-Links, Constraints *(alle Skills lesen sie zuerst)*
+2. **`/setup-design-workspace` ausführen** — das strukturierte Onboarding-Interview fragt alle
+   Quellen aktiv ab (Produkt-Repo, Design-System, Content-Guidelines, Analytics-/Tracking-Tool,
+   A/B-Testing-Tool, Competitor-Analysen, Research-Bestand, gewünschte Anbindungen/Zugänge),
+   füllt daraus die 3 projektspezifischen Dateien und legt `research/` mit Quellen-Inventar an:
+   - `PROJECT-CONTEXT.md` — Stack, Pfade, Quellen-Links, Tools, Constraints *(alle Skills lesen sie zuerst)*
    - `_ux-reference.md` — Brand-Farben, Typo, Komponenten-Palette *(Quelle für `ux-advisor`)*
    - `_content-guidelines.md` — Voice/Tone, Terminologie *(Quelle für `content-advisor`)*
-4. `specs/briefing.md` schreiben, dann `/roadmap`.
-5. Optional: `research/`-Ordner (Heatmaps, Audits, Interviews) — gestufter Research-Intake.
+   **Prinzip: Quellen verlinken statt duplizieren.** Fehlende Quellen werden als protokollierte
+   Lücken festgehalten (kein Blocker). Auch die Advisors verweisen auf dieses Setup, sobald ihnen
+   Kontext fehlt — niemand muss von selbst daran denken.
+3. `specs/briefing.md` schreiben, dann `/roadmap`.
+4. `research/` wächst mit — gestufter Research-Intake (Heatmaps, Audits, Interviews).
 
 Diese 3 Dateien gehören ins jeweilige Projekt-Repo, nicht hierher — dieses Kit bleibt
 **projekt- und firmenneutral**. Firmen- oder projektspezifisches Wissen (Tokens, Prozesse,
@@ -72,6 +72,7 @@ Beispiele) lebt im jeweiligen Projekt-Workspace.
 
 | Skill | Phase | Was er tut |
 |---|---|---|
+| `/setup-design-workspace` | Onboarding | Quellen-Interview bei Projektstart: Produkt/Code, DS, Content, Analytics/Tracking, A/B-Tool, Competitor-Analysen, Anbindungen → füllt die Kontextdateien + `research/`-Inventar |
 | `/roadmap` | Vorbau | Zerlegt `specs/briefing.md` in eine priorisierte Redesign-Roadmap (nur Probleme/Requirements, keine Lösungen) |
 | `/research-design` | 0 | Evidenzbasierte Discovery: Daten synthetisieren, Ist-Produkt heuristisch auditieren, messbares Research-Ziel formulieren |
 | `/brainstorm-design` | 1 | Research-Hypothesen priorisieren, schärfen und per Frage-Loop bis ~90 % Confidence härten |
@@ -108,6 +109,7 @@ Agents `architect-advisor`, `coding-advisor` + Templates `_architecture-referenc
 
 - [x] Entfirmung: alle firmenspezifischen Referenzen aus Skills/Advisors entfernt (07.2026 / 08.2026)
 - [x] Onboarding-Verhalten: Skills/Advisors fragen aktiv nach, wenn Projekt-Kontextdateien fehlen
+- [x] `/setup-design-workspace`: strukturiertes Quellen-Interview bei Projektstart (Tracking, A/B, Competitor-Analysen, Anbindungen)
 - [ ] **Übersetzung auf Englisch** (alle Skills, Advisors, Docs) — Voraussetzung fürs Public-Schalten
 - [ ] Repo **public** schalten (nach EN-Übersetzung + finalem Review)
 - [ ] Code-Track zu einem eigenständigen Kit ausbauen (separates Plugin), wenn gebraucht
