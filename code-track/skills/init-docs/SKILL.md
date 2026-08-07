@@ -1,6 +1,6 @@
 ---
 name: init-docs
-description: Project-specific (payment-form-new). Bootstraps domain-driven documentation for an EXISTING domain in this project. Takes a domain name, discovers the code/tests/config that belong to it, reverse-engineers the domain model, API endpoints, key behaviors and key components, and writes docs/domain-<name>.md plus an updated docs/domain-index.md navigation map. Built so planning/spec/implementation agents can load one file and have everything they need about a domain. Use to document an existing area of the codebase, or when someone says "init-docs <domain>".
+description: Project-specific by design — reads the project context from .claude/PROJECT-CONTEXT.md. Bootstraps domain-driven documentation for an EXISTING domain in this project. Takes a domain name, discovers the code/tests/config that belong to it, reverse-engineers the domain model, API endpoints, key behaviors and key components, and writes docs/domain-<name>.md plus an updated docs/domain-index.md navigation map. Built so planning/spec/implementation agents can load one file and have everything they need about a domain. Use to document an existing area of the codebase, or when someone says "init-docs <domain>".
 argument-hint: "[domain-name]"
 ---
 
@@ -39,12 +39,12 @@ Have it locate, for `$ARGUMENTS`:
   `index.ts`, `const.ts`, `types.ts`).
 - **Contexts / state** under `src/components/contexts/` that this domain reads or writes.
 - **API endpoints & server boundaries** — App Router `route.ts`, Server Actions (`"use server"`),
-  and any Zuora/Kameleoon integration calls the domain triggers.
+  and any external-integration calls the domain triggers (billing, feature flags, …).
 - **Domain types & schemas** — `types.ts`, Zod schemas, shared `const.ts`.
 - **Tests** — Vitest (`*.test.ts(x)`) and Playwright (`*.spec.ts`) that exercise the domain;
   these encode the **key behaviors and acceptance criteria** as they exist today.
-- **i18n keys** in `translations/` that this domain owns (de-DE / fr-FR / nl-NL).
-- **Feature flags** (Kameleoon) gating domain behavior.
+- **i18n keys** in the translation layer that this domain owns (all project locales).
+- **Feature flags** gating domain behavior (tooling per `PROJECT-CONTEXT.md`).
 
 Collect concrete `file_path:line` references — every claim in the doc must be traceable to code
 or a test. Prefer tests as the source of truth for behavior.
@@ -54,7 +54,7 @@ From the discovered evidence, reconstruct:
 1. **Domain model** — the core entities, their fields/types, relationships, and the state that
    flows through the relevant contexts. Cite the `types.ts` / schema / context files.
 2. **API endpoints** — each route / Server Action: method, path or action name, input
-   (Zod schema), output, side effects, and the integration it talks to (Zuora etc.).
+   (validation schema), output, side effects, and the integration it talks to.
 3. **Key behaviors** — what the domain does: validation rules, flows, error/edge cases,
    feature-flag branches. Derive these primarily from the tests; cite the test that proves each.
 4. **Key components** — the components that render/drive the domain, their responsibility, the
@@ -83,7 +83,7 @@ Use the lowercase, kebab-cased domain as `<name>` (e.g. `docs/domain-payment.md`
 - **Key components** — table: `Component | Responsibility | Consumes (props/context) | States | File`.
 - **Features & acceptance criteria** — per feature: short description + `[x]` ACs already covered
   by tests (reference the test), and `[ ]` for behavior that exists but is untested (a gap to flag).
-- **i18n & feature flags** — keys owned and any Kameleoon flags that branch behavior.
+- **i18n & feature flags** — keys owned and any feature flags that branch behavior.
 - **References** — the key `file_path:line` anchors and related `docs/` runbooks.
 
 Every section must be backed by real references. If something can't be found, say so explicitly

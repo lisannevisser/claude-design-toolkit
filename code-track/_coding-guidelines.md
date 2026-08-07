@@ -1,7 +1,6 @@
 # Coding Guidelines — `<projektname>`
 
 > ⚠️ **TEMPLATE — pro Projekt ausfüllen.** Primäres Guideline-Dokument des `coding-advisor`.
-> Gefülltes Beispiel: `examples/payment-form-new/_coding-guidelines.md`.
 
 Lean reference für `<stack-kurzform>`. Enforced by `<linter/formatter/typchecker>` — when in
 doubt, run `<lint-command>`.

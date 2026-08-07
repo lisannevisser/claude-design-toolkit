@@ -3,7 +3,6 @@
 > ⚠️ **TEMPLATE — pro Projekt ausfüllen.** Dies ist eine von drei projektspezifischen Dateien
 > dieses Design-Kits (zusammen mit `_ux-reference.md` und `_content-guidelines.md`). Alles übrige
 > (Skills, Advisors, WORKFLOW.md) ist projekt-neutral. **Alle Skills lesen diese Datei zuerst.**
-> Ein gefülltes Beispiel liegt unter `examples/payment-form-new/`.
 
 ## Projekt
 - **Name:** `<projektname>`

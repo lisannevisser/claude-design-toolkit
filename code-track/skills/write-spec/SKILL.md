@@ -1,6 +1,6 @@
 ---
 name: write-spec
-description: Project-specific (payment-form-new). Phase 2 of the loop — turns an accepted Epic PRD into a detailed technical specification at specs/<epic>/<epic>-spec.md. Covers every requirement and acceptance criterion, plans the tech implementation TDD-first, highlights key architecture decisions, and collects high-impact architecture/tech choices as selectable [ ] options at the end of the file. Writes a Confidence level into the spec and updates it every iteration. Stops if no PRD exists. Use after a PRD is hardened, or when someone says "write-spec <epic>".
+description: Project-specific by design — reads the project context from .claude/PROJECT-CONTEXT.md. Phase 2 of the loop — turns an accepted Epic PRD into a detailed technical specification at specs/<epic>/<epic>-spec.md. Covers every requirement and acceptance criterion, plans the tech implementation TDD-first, highlights key architecture decisions, and collects high-impact architecture/tech choices as selectable [ ] options at the end of the file. Writes a Confidence level into the spec and updates it every iteration. Stops if no PRD exists. Use after a PRD is hardened, or when someone says "write-spec <epic>".
 argument-hint: "[epic-id|epic-name]"
 ---
 
@@ -36,9 +36,10 @@ into code. Before speccing, locate the design artifacts for this epic:
 2. The design handoff for this epic, if it exists — `docs/redesign/<feature>/HANDOFF.md` +
    `SPEC.md` (binding design input per the relay above).
 3. `.claude/PROJECT-CONTEXT.md` — stack, component paths, token sets, constraints, defaults.
-4. `tailwind.config.ts` — source of truth for the token sets (legacy `ts-*` → new `trstd-*`).
-5. Current code of the affected components under `src/components/Elements/` and
-   `src/components/UI/` (paths from the PRD / PROJECT-CONTEXT.md).
+4. The project's token source of truth (e.g. Tailwind config or tokens file — named in
+   `PROJECT-CONTEXT.md`), including the legacy→new token sets if the project migrates.
+5. Current code of the affected components (component paths from the PRD /
+   `PROJECT-CONTEXT.md`).
 
 ## Build the spec from the PRD
 Every PRD **requirement** and **acceptance criterion** must be covered by the spec — nothing
@@ -46,11 +47,11 @@ dropped. Maintain explicit traceability so coverage is verifiable.
 
 1. **Requirement → spec coverage map.** For each PRD requirement/AC, name where the spec
    addresses it. Anything not covered is a gap to resolve before the gate.
-2. **Old→new token mapping** as a table (legacy `ts-*` → `trstd-*`). **If a design `HANDOFF.md`
+2. **Old→new token mapping** as a table (if the project migrates tokens). **If a design `HANDOFF.md`
    exists, transcribe its mapping verbatim** (the design loop already decided it); only fill gaps
    it doesn't cover.
 
-   | Element | Legacy (`ts-*`) | New (`trstd-*`) | Note |
+   | Element | Legacy token | New token | Note |
    |---|---|---|---|
 
 3. **Component intent** — states (default/hover/focus/disabled/error …), variants,
@@ -61,7 +62,7 @@ dropped. Maintain explicit traceability so coverage is verifiable.
    requirement/AC it satisfies.
 5. **Testable acceptance criteria** (inherited + sharpened from the PRD):
    - a11y AA (contrast) + visible focus + labels/aria + touch targets ≥ 44px
-   - no legacy token leftovers (`ts-*`)
+   - no legacy-token leftovers
    - the research/PRD finding is measurably solved
 
 ## Highlight key architecture decisions

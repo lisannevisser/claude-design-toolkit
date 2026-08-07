@@ -54,8 +54,8 @@ Updates: neue Skills/Agents hier pushen, dann `claude plugin update design-toolk
    **Content-Guidelines**. Das Produkt-Repo darf ein **separates** Repo sein (als zusätzliche
    Working-Dir registrieren).
 3. Nur falls eine Quelle fehlt, die **3 projektspezifischen Dateien** inhaltlich füllen
-   (Template-Stubs unter `docs/`, gefülltes TS-Beispiel im Repo `trustedshops/product-design-lab`
-   unter `docs/kit-examples/payment-form-new/`):
+   (Template-Stubs unter `docs/` — die Skills/Advisors fragen aktiv nach, wenn die Dateien
+   fehlen oder noch Stubs sind):
    - `PROJECT-CONTEXT.md` — Stack, Pfade, Quellen-Links, Constraints *(alle Skills lesen sie zuerst)*
    - `_ux-reference.md` — Brand-Farben, Typo, Komponenten-Palette *(Quelle für `ux-advisor`)*
    - `_content-guidelines.md` — Voice/Tone, Terminologie *(Quelle für `content-advisor`)*
@@ -63,19 +63,55 @@ Updates: neue Skills/Agents hier pushen, dann `claude plugin update design-toolk
 5. Optional: `research/`-Ordner (Heatmaps, Audits, Interviews) — gestufter Research-Intake.
 
 Diese 3 Dateien gehören ins jeweilige Projekt-Repo, nicht hierher — dieses Kit bleibt
-**projekt- und firmenneutral**. (Offener Punkt: einige Skills/Advisors referenzieren noch
-`payment-form-new` und `trstd-*`-Tokens aus der Entstehungszeit — Entfirmung steht aus.)
+**projekt- und firmenneutral**. Firmen- oder projektspezifisches Wissen (Tokens, Prozesse,
+Beispiele) lebt im jeweiligen Projekt-Workspace.
 
-## Die 6 Advisors (read-only — kritisieren & schlagen vor, ändern nie)
+## Inventar
+
+### Design-Loop-Skills (`skills/` — aktiv im Plugin)
+
+| Skill | Phase | Was er tut |
+|---|---|---|
+| `/roadmap` | Vorbau | Zerlegt `specs/briefing.md` in eine priorisierte Redesign-Roadmap (nur Probleme/Requirements, keine Lösungen) |
+| `/research-design` | 0 | Evidenzbasierte Discovery: Daten synthetisieren, Ist-Produkt heuristisch auditieren, messbares Research-Ziel formulieren |
+| `/brainstorm-design` | 1 | Research-Hypothesen priorisieren, schärfen und per Frage-Loop bis ~90 % Confidence härten |
+| `/spec-design` | 2 | Redesign-Brief (Design-Spec): Problem, Scope, Constraints, Komponenten-Intent, UX-Outcome-Akzeptanzkriterien |
+| `/explore-design` | 3 | Divergente Exploration: 2–3 HTML-Prototyp-Richtungen auf einem Vergleichs-Canvas mit Live-Reglern, dann Wahl |
+| `/implement-design` | 4 | Baut die gewählte Richtung in Figma zur finalen Fidelity aus (DS-Tokens des Projekts) |
+| `/verify-design` | 5 | Gleicht das Figma-Ergebnis gegen Design-Spec und Research-Ziel ab (Screenshot-Diff, a11y, Token-Compliance) |
+| `/handoff-design` | optional | Dev-Handoff-Paket: Element→Token→Komponente-Mapping aus dem verifizierten Design |
+
+### Advisor-Agents (`agents/` — read-only: kritisieren & schlagen vor, ändern nie)
 
 | Advisor | Fokus |
 |---|---|
-| `ux-advisor` | UX-Entscheidungen, a11y (Pflicht-Baseline), Heuristiken, Clarity |
+| `ux-advisor` | UX-Entscheidungen, a11y (Pflicht-Baseline), Heuristiken, Verhaltensdaten |
 | `research-advisor` | Heuristik-/Experten-Audit des Ist-Produkts nach `_audit-standards.md` (4 Lenses), opt. Live-Walkthrough |
 | `content-advisor` | Copy/Microcopy/Tonalität gegen Content-Guidelines, i18n-Längen |
 | `conversion-advisor` | CRO-/Trust-Linse, an messbaren Research-Zielen verankert |
 | `ds-architecture-advisor` | Design-System-Architektur, Library-Pflege, Token-Migration |
 | `feasibility-advisor` | Aufwand, Wiederverwendung, dev-ready Handoff |
+
+### Templates & Referenzdocs (`docs/`)
+
+`WORKFLOW.md` (voller Ablauf) · `_audit-standards.md` (neutraler Audit-Standard) ·
+Template-Stubs `PROJECT-CONTEXT.md`, `_ux-reference.md`, `_content-guidelines.md` ·
+`settings.json`
+
+### Code-Track (`code-track/` — Staging, im Plugin NICHT aktiv)
+
+Skills `brainstorm`, `write-spec`, `implement-epic`, `verify-epic`, `init-docs` +
+Agents `architect-advisor`, `coding-advisor` + Templates `_architecture-reference.md`,
+`_coding-guidelines.md`. Keim für eine spätere, separate Code-Kit (TDD-Track).
+
+## Backlog / Ziele
+
+- [x] Entfirmung: alle firmenspezifischen Referenzen aus Skills/Advisors entfernt (07.2026 / 08.2026)
+- [x] Onboarding-Verhalten: Skills/Advisors fragen aktiv nach, wenn Projekt-Kontextdateien fehlen
+- [ ] **Übersetzung auf Englisch** (alle Skills, Advisors, Docs) — Voraussetzung fürs Public-Schalten
+- [ ] Repo **public** schalten (nach EN-Übersetzung + finalem Review)
+- [ ] Code-Track zu einem eigenständigen Kit ausbauen (separates Plugin), wenn gebraucht
+- [ ] Eval: Kit einmal in einem fremden Projekt (nicht-TS) durchspielen und Reibungspunkte fixen
 
 ## Credits
 Der HTML-Prototyp-Canvas-Ansatz in `explore-design` (mehrere Varianten auf Tabs + Live-Regler) ist

@@ -39,14 +39,14 @@ springt der Loop zur kleinsten passenden Phase zurück.
 |---|---|---|---|---|
 | ① brainstorm | PROJECT-CONTEXT, `specs/roadmap.md`, Ist-Code, `research/`, Figma-Ist | Epic → Requirements/Akzeptanzkriterien, Fragen-Schleife bis ~90 % Confidence | alle drei | `PRD.md` |
 | ② spec | PRD, PROJECT-CONTEXT, `tailwind.config.ts` | Ziel, Scope, Alt→Neu-Mapping, Intent, Akzeptanzkriterien | architect, coding, feasibility | `SPEC.md` |
-| ③ implement | SPEC, PROJECT-CONTEXT | A) Figma mit `trstd-*` bauen · B) Handoff zurücklesen | ds-architecture (A), coding · feasibility (B) | Figma-Nodes + `HANDOFF.md` |
+| ③ implement | SPEC, PROJECT-CONTEXT | A) Figma mit den DS-Tokens des Projekts bauen · B) Handoff zurücklesen | ds-architecture (A), coding · feasibility (B) | Figma-Nodes + `HANDOFF.md` |
 | ④ verify | SPEC, HANDOFF, PRD, PROJECT-CONTEXT | Screenshot-Diff, Token/a11y/Finding-Check | alle drei | `VERIFY.md` |
 
 ## Die Advisors (read-only — kritisieren & schlagen vor, ändern nie)
 - **UX Advisor** (`ux-advisor`) — Fokus: a11y als Pflicht-Baseline, Heuristiken, Clarity;
   Interviews nur bedingt.
 - **Architecture Advisor** (`ds-architecture-advisor`) — Fokus: Design-System-Architektur,
-  aktive Library-Pflege, Integrität der `ts-*`→`trstd-*`-Migration.
+  aktive Library-Pflege, Integrität der Alt→Neu-Token-Migration (falls vorhanden).
 - **Architect Advisor** (`architect-advisor`) — Fokus: Software-/Code-Architektur — Layering,
   Datenfluss, Server Action vs. Client, Integrationsgrenzen (`.claude/_architecture-reference.md`).
 - **Coding Advisor** (`coding-advisor`) — Fokus: Code-Stil & Code-Organisation — Namen,
@@ -78,8 +78,8 @@ specs/<epic>/
 - **Lesen:** `get_screenshot`, `get_metadata`, `get_design_context`, `get_variable_defs`,
   `search_design_system`.
 - **Bauen:** **zuerst `/figma-use` laden** (für ganze Screens zusätzlich
-  `/figma-generate-design`), dann `use_figma` / `generate_figma_design` — nur `trstd-*`-Tokens,
-  keine festen Hex-Werte, bestehende DS-Komponenten bevorzugen.
+  `/figma-generate-design`), dann `use_figma` / `generate_figma_design` — nur die DS-Tokens
+  des Projekts, keine festen Hex-Werte, bestehende DS-Komponenten bevorzugen.
 - **Code-Connect:** `/figma-code-connect` → `add_code_connect_map` (Figma-Komponente ↔
   `src/components/...`).
 

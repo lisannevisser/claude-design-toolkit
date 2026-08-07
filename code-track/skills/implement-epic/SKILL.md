@@ -1,6 +1,6 @@
 ---
 name: implement-epic
-description: Project-specific (payment-form-new). Phase 3 of the loop — takes an epic name and implements it from its technical spec following a TDD agentic flow: analyze the spec, build tests from it, implement the requirements, run the tests, and fix until everything passes. Stops if no spec exists. Finishes with a report mapping every acceptance criterion to done / partly / not done. Use when an accepted spec exists, or when someone says "implement-epic <epic>".
+description: Project-specific by design — reads the project context from .claude/PROJECT-CONTEXT.md. Phase 3 of the loop — takes an epic name and implements it from its technical spec following a TDD agentic flow: analyze the spec, build tests from it, implement the requirements, run the tests, and fix until everything passes. Stops if no spec exists. Finishes with a report mapping every acceptance criterion to done / partly / not done. Use when an accepted spec exists, or when someone says "implement-epic <epic>".
 argument-hint: "[epic-id|epic-name]"
 ---
 
@@ -35,10 +35,11 @@ Work in slices, one spec requirement/AC at a time, strictly **test-driven**:
    criterion. Note the TDD tasks the spec already defined and the architecture decisions to
    honour. Identify the test command(s) from PROJECT-CONTEXT.md (unit + any e2e/Playwright).
 2. **Build the tests according to the spec.** For each slice, write the failing test(s) first
-   — they encode the acceptance criteria (behaviour, states, a11y AA, i18n de/fr/nl, no `ts-*`
+   — they encode the acceptance criteria (behaviour, states, a11y AA, i18n for all project locales, no legacy-token
    leftovers, flag parity). Run them and confirm they fail for the right reason (red).
 3. **Implement the requirements.** Write the minimum code to satisfy the tests, following the
-   spec's architecture decisions and using only new tokens (`trstd-*`), reusing existing
+   spec's architecture decisions and using only the project's current DS tokens (per the
+   spec's mapping), reusing existing
    design-system components. Then refactor while keeping tests green.
 4. **Verify by running the tests.** Run the full relevant suite (unit + e2e where applicable),
    plus lint/typecheck if PROJECT-CONTEXT.md defines them.

@@ -47,7 +47,7 @@ Eine klare Achse verhindert kosmetisch-gleiche Varianten.
    je mit **Ein-Satz-Konzept** (z. B. „A · Klarer Fokus auf eine Primäraktion") + **Trade-off-Notiz**,
    und **Live-Reglern** (CSS-Variablen via `postMessage`: Akzent, Hintergrund, Schriftgrößen …) für
    interaktives Durchprobieren. Die Regler explorieren **innerhalb** des DS — final gewählte Werte
-   müssen auf **trstd-Tokens zurückmappbar** sein (kein beliebiger Hex als Endergebnis).
+   müssen auf **die DS-Tokens des Projekts zurückmappbar** sein (kein beliebiger Hex als Endergebnis).
 5. **Ablage:** `docs/redesign/$ARGUMENTS/explore/` (Canvas + Richtungs-Dateien). Pfade festhalten.
 
 ## Step B — vergleichen & wählen

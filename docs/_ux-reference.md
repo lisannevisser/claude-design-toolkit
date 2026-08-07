@@ -1,7 +1,6 @@
 # UX Reference — `<projektname>`
 
 > ⚠️ **TEMPLATE — pro Projekt ausfüllen.** Primäres Guideline-Dokument des `ux-advisor`.
-> Gefülltes Beispiel: `examples/payment-form-new/_ux-reference.md`.
 
 `<Ein-Satz-Beschreibung des Produkts/der Flows. Stack-Kurzform. Falls zwei Designsysteme
 parallel existieren: welches ist neu (Ziel), welches wird migriert.>`

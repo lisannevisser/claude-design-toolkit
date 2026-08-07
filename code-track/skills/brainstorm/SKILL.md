@@ -1,13 +1,14 @@
 ---
 name: brainstorm
-description: Project-specific (payment-form-new). Phase 1 of the loop — breaks an epic from specs/roadmap.md down into a solid Epic PRD in specs/<epic>/PRD.md and hardens it. Creates the PRD from the roadmap if missing, records open questions with options (one marked Recommended), folds answers directly into PRD requirements/acceptance criteria, and keeps asking until confidence reaches ~90%. Writes a Confidence level into the PRD and updates it every iteration. Use when an epic should be worked out, clarified, sharpened or de-risked, or when someone says "brainstorm <epic>".
+description: Project-specific by design — reads the project context from .claude/PROJECT-CONTEXT.md. Phase 1 of the loop — breaks an epic from specs/roadmap.md down into a solid Epic PRD in specs/<epic>/PRD.md and hardens it. Creates the PRD from the roadmap if missing, records open questions with options (one marked Recommended), folds answers directly into PRD requirements/acceptance criteria, and keeps asking until confidence reaches ~90%. Writes a Confidence level into the PRD and updates it every iteration. Use when an epic should be worked out, clarified, sharpened or de-risked, or when someone says "brainstorm <epic>".
 argument-hint: "[epic-id|epic-name]"
 ---
 
-# Phase 1/4 — Brainstorm: harden the Epic PRD (payment-form-new)
+# Phase 1/4 — Brainstorm: harden the Epic PRD
 
-This skill is **specific to this project** (payment-form-new) — it knows the roadmap epics,
-the `specs/` layout and the `ts-*`→`trstd-*` migration directly.
+This skill reads the project's roadmap epics, `specs/` layout and (if present) the
+legacy→new token migration from `.claude/PROJECT-CONTEXT.md`. **If that file is missing or
+still a template stub, ask the user to fill it before starting** (template ships with the toolkit).
 
 Epic to work on: **`$ARGUMENTS`**.
 If `$ARGUMENTS` is empty or unclear, show the epic list from `specs/roadmap.md` and let the
@@ -47,9 +48,9 @@ scope, functional/non-functional requirements and first acceptance criteria.
 If it already exists, load it and **keep hardening it** (do not rewrite from scratch).
 
 ## Procedure (hardening loop)
-1. **Sharpen current state & scope** incl. **legacy token inventory**: which `ts-*` tokens do
+1. **Sharpen current state & scope** incl. **legacy token inventory**: which legacy tokens do
    the `$ARGUMENTS` components use today? Which states/variants, flows and error cases actually
-   exist in the code? What is explicitly out of scope (e.g. Zuora payment logic, pricing, backend)?
+   exist in the code? What is explicitly out of scope (e.g. external billing logic, pricing, backend)?
 2. **Gather evidence in tiers** — a missing tier is an open question, not a blocker:
    - a11y (always the mandatory baseline)
    - heuristics (Nielsen + form design)
@@ -94,9 +95,9 @@ solid it is right now:
 ## Confidence rubric (~90% means)
 - Scope & out-of-scope are unambiguous, no open "it depends".
 - Every functional requirement has at least one testable acceptance criterion.
-- The E1 baseline defaults are referenced: no `ts-*` leftovers, WCAG AA (focus, labels/aria,
-  contrast, touch targets ≥ 44px), i18n lengths de/fr/nl, flag parity (Kameleoon),
-  "no existing function lost".
+- The acceptance defaults from `PROJECT-CONTEXT.md` are referenced: no legacy-token leftovers,
+  WCAG AA (focus, labels/aria, contrast, touch targets ≥ 44px), i18n lengths for all project
+  locales, feature-flag parity, "no existing function lost".
 - All material assumptions are resolved **or** explicitly marked as an accepted risk
   (with owner/follow-up).
 - Advisor findings are incorporated or noted as an open point.

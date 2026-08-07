@@ -10,7 +10,6 @@ Hier liegt der **Keim für eine spätere, separate Code-Kit** (TDD-Track):
 - `agents/` — `architect-advisor`, `coding-advisor`
 - `_architecture-reference.md`, `_coding-guidelines.md` (deren Referenzdocs)
 - `WORKFLOW.md` (der alte kombinierte Workflow-Doc)
-- `examples/payment-form-new/` (gefüllte Code-Referenzen)
 
 **So greift es später ins Design-Kit:** Beide teilen `specs/briefing.md` + `specs/roadmap.md`
 als Rückgrat. Der Design-Track läuft zuerst und erzeugt `docs/redesign/<feature>/HANDOFF.md`;

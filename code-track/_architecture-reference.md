@@ -1,8 +1,7 @@
 # Architecture Reference — `<projektname>`
 
 > ⚠️ **TEMPLATE — pro Projekt ausfüllen.** Primäres Guideline-Dokument des `architect-advisor`.
-> Gefülltes Beispiel: `examples/payment-form-new/_architecture-reference.md`. Für
-> Design-System-Tokens/Migration siehe `PROJECT-CONTEXT.md`.
+> Für Design-System-Tokens/Migration siehe `PROJECT-CONTEXT.md`.
 
 Concise reference für Feature-Entwicklung. Wesentliche Design-Entscheidungen + Leitplanken.
 

@@ -1,6 +1,6 @@
 ---
 name: verify-epic
-description: Project-specific (payment-form-new). Phase 4 of the loop — checks the implemented epic against its spec (acceptance criteria covered by passing tests, token compliance, a11y, requirement coverage) and decides whether the loop closes (Pass) or returns to the smallest fitting phase (Fail). Use after /implement-epic.
+description: Project-specific by design — reads the project context from .claude/PROJECT-CONTEXT.md. Phase 4 of the loop — checks the implemented epic against its spec (acceptance criteria covered by passing tests, token compliance, a11y, requirement coverage) and decides whether the loop closes (Pass) or returns to the smallest fitting phase (Fail). Use after /implement-epic.
 argument-hint: "[epic-id|epic-name]"
 ---
 
@@ -19,8 +19,8 @@ the implemented code under `src/components/`, the tests, and `.claude/PROJECT-CO
    and backed by a passing test. Walk the spec's coverage map item by item.
 2. **Tests** — run the full relevant suite (unit + e2e where applicable) plus lint/typecheck;
    everything must be green. No skipped or weakened tests covering an AC.
-3. **Token compliance** — no legacy token leftovers (`ts-*`); `grep` the touched code to confirm
-   only `trstd-*` tokens are used per the spec's mapping.
+3. **Token compliance** — no legacy-token leftovers; `grep` the touched code to confirm
+   only the project's current DS tokens are used per the spec's mapping.
 4. **a11y** — contrast AA, visible focus, labels/aria, touch targets ≥ 44px.
 5. **Requirement/finding** — the originating PRD requirement/finding is measurably solved.
 6. **Design parity (if a design handoff exists)** — the built code matches the
