@@ -1,6 +1,6 @@
 ---
 name: explore-design
-description: Phase 3 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Divergente visuelle Exploration — zuerst SCHNELLE HTML-Prototypen (2–3 Richtungen) auf einem interaktiven Vergleichs-Canvas für Frühfeedback, dann eine Richtung begründet wählen. Das Herzstück der visuellen Designarbeit. Nutzen, nachdem die Design-Spec steht. (Kein Code-Track-Pendant; speist implement-design.)
+description: Phase 3 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Divergente visuelle Exploration — zuerst SCHNELLE HTML-Prototypen (2–3 Richtungen) auf einem interaktiven Vergleichs-Canvas für Frühfeedback, dann eine Richtung begründet wählen. Das Herzstück der visuellen Designarbeit. Nutzen, nachdem die Design-Spec steht. (Speist implement-design.)
 argument-hint: "[feature/roadmap-item]"
 ---
 

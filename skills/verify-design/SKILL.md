@@ -1,13 +1,13 @@
 ---
 name: verify-design
-description: Phase 5 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Gleicht das finale Figma-Design gegen die Design-Spec UND das messbare Research-Ziel ab — Screenshot-Diff, a11y, Token-Compliance, plus optionale leichte Nutzervalidierung — und entscheidet über den nächsten Loop. Nutzen nach implement-design. (Code-Track-Pendant: verify-epic.)
+description: Phase 5 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Gleicht das finale Figma-Design gegen die Design-Spec UND das messbare Research-Ziel ab — Screenshot-Diff, a11y, Token-Compliance, plus optionale leichte Nutzervalidierung — und entscheidet über den nächsten Loop. Nutzen nach implement-design.
 argument-hint: "[feature]"
 ---
 
 # Phase 5/5 — Verify (Design-Track): Abgleich & Loop-Entscheidung
 
 Design-Track (Figma). Prüft das **finale Design** gegen die Spec und das **messbare Research-Ziel**
-(kein Test-Suite-Lauf — den macht der separate Code-Track; kein Dev-Handoff — das ist `handoff-design`).
+(kein Test-Suite-Lauf — der gehört in den Dev-Prozess; kein Dev-Handoff — das ist `handoff-design`).
 Antworte auf Deutsch.
 
 Feature: **`$ARGUMENTS`**.

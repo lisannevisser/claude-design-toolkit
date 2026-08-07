@@ -2,7 +2,7 @@
 
 Doku des **Design-Kits**. Fokus: **informierte UX (durch Research & Daten)** und **divergente
 visuelle Exploration**, nicht ein dev-fertiger Prototyp. Der Scope ist **bewusst Design** — der
-TDD-Code-Track ist eine **separate Kit** (siehe `../code-track-future/`) und konkurriert hier
+TDD-Code-Track ist bewusst ausgelagert (archiviert im Git-Tag `code-track-archive`, künftig ein eigenes Plugin) und konkurriert hier
 nicht. Das Dev-Handoff ist ein **optionaler Schluss-Schritt** und die saubere Brücke dorthin.
 
 ## Vorbau: Briefing → Roadmap (einmal pro Projekt)
@@ -12,7 +12,7 @@ nicht. Das Dev-Handoff ist ein **optionaler Schluss-Schritt** und die saubere Br
   nur Probleme/Requirements, keine Lösungen/Tech; Abhängigkeiten + Parallelität; Abnahme-Gate.
 
 Die Roadmap ist das **geteilte Rückgrat**: jedes Item durchläuft erst den Design-Loop und (optional,
-später, in der separaten Code-Kit) den Code-Loop.
+später, in einem separaten Code-Plugin) den Code-Loop.
 
 ## Der Design-Loop (6 Phasen + optionaler Handoff)
 Research- und explorationsgetrieben: Daten zuerst, dann divergieren, dann eine informierte Wahl
@@ -41,17 +41,17 @@ härtet bis ~90 %.
               └─────────────────────  nein: zurück zur kleinsten Phase ◀── Pass? ────────┘     │
                                                                               │ ja              │
                                                                               ▼                 │
-                                          ＋ HANDOFF (optional) ─▶ HANDOFF.md ─▶ separate Code-Kit
+                                          ＋ HANDOFF (optional) ─▶ HANDOFF.md ─▶ Dev-Prozess / späteres Code-Plugin
 ```
 
 ## Brücke zum Code (optional, separate Kit)
 Der Design-Loop ist **vollständig standalone**. Soll ein abgenommenes Design in Code:
 - `spec-design` setzt **`Code-Epic: <ID>`** (= Roadmap-Item-ID); `handoff-design` trägt sie ins
   `HANDOFF.md`.
-- Die **separate Code-Kit** (`../code-track-future/`) liest `HANDOFF.md` als bindenden Input
+- Ein **späteres Code-Plugin** liest `HANDOFF.md` als bindenden Input
   (Token-Mapping & Komponenten-Intent übernehmen, nicht neu erfinden) und notiert `Design-Feature:`
   zurück.
-- Ohne Code-Kit dient `HANDOFF.md` jedem beliebigen Dev-Prozess als dev-ready Vorlage.
+- Bis dahin dient `HANDOFF.md` jedem beliebigen Dev-Prozess als dev-ready Vorlage.
 
 ## Die Advisors (read-only — kritisieren & schlagen vor, ändern nie)
 Frühe Phasen (⓪–③) sind UX-/Research-lastig:
@@ -63,7 +63,7 @@ Frühe Phasen (⓪–③) sind UX-/Research-lastig:
 - **`ds-architecture-advisor`** — Design-System-Architektur, Library-Pflege, Token-Migration.
 - **`feasibility-advisor`** — Umsetzbarkeit & Wiederverwendung; voller dev-ready-Check im Handoff.
 
-> Tiefer Code-Stil/Software-Architektur (architect-/coding-advisor) liegt in der separaten Code-Kit.
+> Tiefer Code-Stil/Software-Architektur liegt außerhalb dieses Kits (späteres Code-Plugin).
 
 ## Artefakt-Baum (pro Redesign-Item)
 ```

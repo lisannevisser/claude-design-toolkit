@@ -1,12 +1,12 @@
 ---
 name: spec-design
-description: Phase 2 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Schreibt den Redesign-Brief (Design-Spec) — Problem, Scope, Constraints, Komponenten-Intent und UX-Outcome-Akzeptanzkriterien. Definiert das ZU LÖSENDE PROBLEM, nicht die visuelle Lösung (die findet die Exploration). Nutzen, nachdem die brainstorm-design-Hypothesen stehen. (Code-Track-Pendant: write-spec.)
+description: Phase 2 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Schreibt den Redesign-Brief (Design-Spec) — Problem, Scope, Constraints, Komponenten-Intent und UX-Outcome-Akzeptanzkriterien. Definiert das ZU LÖSENDE PROBLEM, nicht die visuelle Lösung (die findet die Exploration). Nutzen, nachdem die brainstorm-design-Hypothesen stehen.
 argument-hint: "[feature]"
 ---
 
 # Phase 2/5 — Spec (Design-Track): der Redesign-Brief
 
-Design-Track (Figma). Output ist eine **Design-Spec**, kein TDD-Tech-Spec (den macht der separate Code-Track).
+Design-Track (Figma). Output ist ein **Design Brief** (Design-Spec), kein technisches Dev-Dokument.
 **Wichtig:** Die Spec definiert das **Problem + die Constraints + die Erfolgskriterien** — sie
 schreibt **nicht** die visuelle Lösung vor. Die entsteht divergent in `explore-design`. Antworte
 auf Deutsch.
@@ -46,7 +46,7 @@ verweise auf **/brainstorm-design `$ARGUMENTS`**. Keine Spec aus dem Nichts erfi
      Wiederverwendung bestehender Komponenten.
 7. **Offene Punkte** beantwortet oder als Risiko markiert.
 8. **Relay-Handle** — oben in `SPEC.md` eine Zeile **`Code-Epic: <ID|tbd>`** (die Roadmap-Epic,
-   die dieses Redesign später in Code umsetzt). So findet der Code-Track das passende Artefakt.
+   die dieses Redesign später in Code umsetzt). So findet der Dev-Prozess das passende Artefakt.
 
 ## Zweitmeinung (Agent-Tool — früh = UX-lastig)
 - `ux-advisor` — Problem/Akzeptanz an Evidenz & Heuristik geschärft, a11y-Baseline.

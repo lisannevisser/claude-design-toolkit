@@ -1,6 +1,6 @@
 ---
 name: brainstorm-design
-description: Phase 1 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Nimmt die rohen Research-Hypothesen, priorisiert und schärft sie und härtet sie über einen Survey-Loop bis ~90% Confidence zu spec-reifen Redesign-Hypothesen. Das eine harte Discovery-Gate. Nutzen, nachdem research-design die Datenlage + Lücken geschärft hat. (Code-Track-Pendant: brainstorm.)
+description: Phase 1 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Nimmt die rohen Research-Hypothesen, priorisiert und schärft sie und härtet sie über einen Survey-Loop bis ~90% Confidence zu spec-reifen Redesign-Hypothesen. Das eine harte Discovery-Gate. Nutzen, nachdem research-design die Datenlage + Lücken geschärft hat.
 argument-hint: "[feature/roadmap-item]"
 ---
 

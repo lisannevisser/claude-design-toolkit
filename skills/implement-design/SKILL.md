@@ -1,6 +1,6 @@
 ---
 name: implement-design
-description: Phase 4 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Baut die in explore-design GEWÄHLTE Richtung in Figma zur finalen Fidelity aus — mit dem neuen Designsystem (neu-* Tokens), allen Zuständen, Varianten, Responsiveness und i18n-Längen. KEIN Dev-Handoff hier (das ist handoff-design, entkoppelt). Nutzen, wenn eine Richtung gewählt ist. (Code-Track-Pendant: implement-epic.)
+description: Phase 4 des DESIGN-Loops (Spec-Driven Design, Figma-Track). Baut die in explore-design GEWÄHLTE Richtung in Figma zur finalen Fidelity aus — mit dem neuen Designsystem (neu-* Tokens), allen Zuständen, Varianten, Responsiveness und i18n-Längen. KEIN Dev-Handoff hier (das ist handoff-design, entkoppelt). Nutzen, wenn eine Richtung gewählt ist.
 argument-hint: "[feature]"
 ---
 
@@ -8,7 +8,7 @@ argument-hint: "[feature]"
 
 Design-Track (Figma). Hier wird die **gewählte Richtung** aus der Exploration **final** in Figma
 gebaut — sauber, vollständig, mit dem neuen Designsystem. Hier wird in Figma gebaut, nicht in Code
-(das macht der separate Code-Track). **Der Dev-Handoff ist bewusst ausgelagert** (→ `handoff-design`),
+(das gehört in den Dev-Prozess). **Der Dev-Handoff ist bewusst ausgelagert** (→ `handoff-design`),
 damit das finale Design nicht unter dev-ready-Druck entsteht. Antworte auf Deutsch.
 
 Feature: **`$ARGUMENTS`**.

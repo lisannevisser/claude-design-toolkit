@@ -46,4 +46,4 @@ je 4 auf Briefing+App zugeschnittene Optionen, alle mit `[]`, **eine „Recommen
 ## Gate (Abnahme zwingend)
 Roadmap **dem User zur Abnahme vorlegen** — nicht eigenmächtig als final betrachten. Nach Abnahme:
 pro Item **/research-design `<item>`** starten. Die Item-ID ist später auch die `Code-Epic:`-ID
-für den (optionalen) Code-Track.
+für die (optionale) spätere Code-Umsetzung.
