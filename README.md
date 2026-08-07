@@ -103,6 +103,50 @@ Diese 3 Dateien gehören ins jeweilige Projekt-Repo, nicht hierher. Dieses Kit b
 **projekt- und firmenneutral**; firmen- oder projektspezifisches Wissen (Tokens, Prozesse,
 Beispiele) lebt im jeweiligen Projekt-Workspace.
 
+### Auf das Produkt-Repo zugreifen (zwei Repos gleichzeitig)
+
+Der Normalfall mit diesem Kit: Deine Session läuft im **Design-Workspace**, aber das echte
+Produkt (Komponenten, Tokens, Texte) liegt in einem **anderen Repo**. Das ist kein Problem und
+kein Grund, Dateien zu kopieren. Drei Wege, vom schnellsten zum dauerhaftesten:
+
+1. **Pro Session**: In Claude Code `/add-dir /pfad/zum/produkt-repo` eingeben. Damit ist das
+   Produkt-Repo für diese Session als zusätzliches Arbeitsverzeichnis registriert und Claude
+   kann dort lesen.
+2. **Dauerhaft für den Workspace**: In der `.claude/settings.json` des Design-Workspace
+   hinterlegen, dann gilt es in jeder Session automatisch:
+   ```json
+   {
+     "permissions": {
+       "additionalDirectories": ["/pfad/zum/produkt-repo"]
+     }
+   }
+   ```
+3. **Immer zusätzlich**: Den Pfad in `PROJECT-CONTEXT.md` verlinken (macht
+   `/setup-design-workspace` automatisch). Das ist die Landkarte, über die Skills und Advisors
+   wissen, **wo** sie suchen sollen; Weg 1 oder 2 gibt ihnen die **Erlaubnis** dazu.
+
+Beruhigend dabei: Die Advisors sind read-only, im Produkt-Repo wird nur gelesen, nie geändert.
+Fehlt die Freigabe, fragt Claude einfach nach, es kann nichts kaputtgehen.
+
+## Die Bausteine: Skill, Agent, Kontextdatei, Artefakt
+
+Damit klar ist, was dieses Repo eigentlich anbietet (und wann man was baut):
+
+| Baustein | Was es ist | Wann es das Richtige ist |
+|---|---|---|
+| **Skill** (`skills/`) | Ein abrufbarer **Prozess**: ein Schritt-für-Schritt-Rezept, das per `/name` in deiner Session läuft und dich bis zu einem definierten Ergebnis führt | Wiederholbarer Ablauf mit klarem Output, z. B. `/research-design` (Ablauf → `RESEARCH.md`) oder `/setup-design-workspace` (Interview → gefüllte Kontextdateien) |
+| **Agent** (`agents/`) | Eine **Perspektive**: ein Spezialist mit eigenem Kontextfenster und eigenen Tools, der von der Session oder aus einem Skill heraus gerufen wird, separat arbeitet und Findings zurückliefert | Ein Prüfblick oder Sparringspartner statt eines Ablaufs, z. B. alle Advisors. Der `jobs-advisor` ist deshalb ein Agent: man konsultiert ihn, man führt ihn nicht aus |
+| **Kontextdatei** (`.claude/` im Projekt) | **Wissen**: Fakten über dein Projekt (Stack, Tokens, Guidelines, Quellen), die Skills und Agents zuerst lesen | Alles, was projektspezifisch ist und sich nicht bei jedem Aufruf ändern soll |
+| **Artefakt** (`docs/redesign/…` im Projekt) | Ein **Ergebnis** des Loops: `RESEARCH.md`, Design Brief, `EXPLORE.md`, `VERIFY.md`. Der prüfbare Anker, gegen den iteriert wird | Entsteht durch die Skills; wird nie von Hand ins Kit geschrieben |
+
+Faustregel: **Prozess → Skill · Perspektive → Agent · Wissen → Kontextdatei · Ergebnis → Artefakt.**
+
+Noch zwei Begriffsklärungen: **„Agent" und „Sub-Agent" meinen hier dasselbe**, die Advisors
+laufen technisch als Subagents deiner Hauptsession (eigener Kontext, kommen mit einem Report
+zurück). Und Skills und Agents arbeiten zusammen, nicht konkurrierend: Skills **rufen** Agents
+an den passenden Stellen (z. B. holt `/explore-design` beim Vergleich die Zweitmeinung der
+Advisors ein); Agents ändern nie etwas, Skills schon.
+
 ## Inventar
 
 ### Skills (`skills/`)
@@ -164,6 +208,9 @@ Bedarf ein **eigenes Plugin**.
 
 ## Credits
 
-Der HTML-Prototyp-Canvas-Ansatz in `explore-design` (mehrere Varianten auf Tabs + Live-Regler) ist
-inspiriert von **[dan-carino/design-directions-skill](https://github.com/dan-carino/design-directions-skill)**,
-hier DS-treu und evidenzbasiert adaptiert.
+- Der Loop-Ansatz stammt ursprünglich aus einem internen **Workshop zu Spec-Driven
+  Development**; hier vom Dev-Kontext gelöst und auf Design Thinking umgemünzt.
+- Der HTML-Prototyp-Canvas-Ansatz in `explore-design` (mehrere Varianten auf Tabs + Live-Regler)
+  ist inspiriert von
+  **[dan-carino/design-directions-skill](https://github.com/dan-carino/design-directions-skill)**,
+  hier DS-treu und evidenzbasiert adaptiert.
