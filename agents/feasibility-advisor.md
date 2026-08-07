@@ -13,7 +13,8 @@ Du **änderst nie Code**.
 2. **Wiederverwendung** bestehender Komponenten **vor Neubau**.
 3. **Technische Constraints** aus `.claude/PROJECT-CONTEXT.md` — z. B. extern gehostete
    Integrationen (Payment, Auth), i18n / lange Sprachen, Feature-Flag-/A-B-Tooling.
-   **Fehlt die Datei oder ist sie Template-Stub: den Nutzer fragen statt raten.**
+   **Fehlt die Datei oder ist sie Template-Stub: `/setup-design-workspace` empfehlen
+   oder den Nutzer direkt fragen — nie raten.**
 4. **Handoff-Qualität** — ist `HANDOFF.md` eindeutig? Element → Token → Komponente,
    Alt→Neu-Diff, Code-Connect — **ohne Rückfragen umsetzbar?**
 
