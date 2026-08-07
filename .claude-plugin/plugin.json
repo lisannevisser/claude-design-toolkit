@@ -1,6 +1,6 @@
 {
   "name": "design-toolkit",
-  "description": "Spec-driven design workflow: 6-phase design loop (research, explore, brainstorm, spec, implement, verify, handoff) plus advisor subagents for UX, content, conversion, research, feasibility and design-system architecture.",
+  "description": "Design-loop toolkit for designers becoming builders: design-thinking phases (research, brainstorm, brief, explore, implement, verify, handoff) that loop against a testable anchor, six read-only lens advisors (desirability/feasibility/viability) plus perspective add-ons like the jobs-advisor.",
   "version": "0.5.0",
   "author": {
     "name": "Lisanne Visser"
