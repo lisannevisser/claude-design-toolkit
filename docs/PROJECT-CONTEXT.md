@@ -30,7 +30,7 @@ jeweilige Domänendoku springen:
 - **`<../docs/domain-index.md>`** — Navigationskarte, eine Zeile je Domäne.
 
 Falls Domänendocs existieren, hier verlinken. Das Erzeugen solcher Code-Domänendocs (`init-docs`)
-ist dev-facing und liegt in der separaten Code-Kit; der Design-Loop liest das Produkt-Repo direkt
+ist dev-facing und liegt außerhalb dieses Kits (späteres Code-Plugin); der Design-Loop liest das Produkt-Repo direkt
 (via `research-design`/`research-advisor`).
 
 ## Designsystem — alt vs. neu
