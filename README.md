@@ -10,7 +10,8 @@ prüfbaren Anker. Vier Zutaten machen das möglich, und sie sind der Kern dieses
 1. **Ein schriftlicher Anker**: messbares Research-Ziel + UX-Outcome-Kriterien im Design Brief.
 2. **Ein Verify-Schritt**, der jedes Ergebnis gegen diesen Anker hält (`/verify-design`).
 3. **Eine Rücksprungregel**: bei Fail zurück in die kleinste passende Phase, nicht auf Anfang.
-4. **Read-only-Kritiker**: sechs Advisors, die den Loop mit Evidenz statt Geschmack füttern.
+4. **Read-only-Kritiker**: sechs Linsen-Advisors, die den Loop mit Evidenz statt Geschmack
+   füttern (plus Perspektiven-Add-ons als bewusste Störimpulse, s. u.).
 
 So kann der Loop konvergieren, statt endlos zu drehen, und Menschen mit unterschiedlichem
 Erfahrungslevel kommen zum gleichen, belegbaren Arbeitsstand.
@@ -41,13 +42,25 @@ Die Advisors decken die drei klassischen Design-Thinking-Linsen ab:
 Wichtige Grundregel der Feasibility-Linse: **Aufwand ist Information, kein Veto.** Fehlt einem
 Design ein technisches Feature, ist das ein Design-Auftrag, kein K.-o.-Kriterium.
 
+## Add-ons: Perspektiven-Advisors
+
+Bewusst **außerhalb** der drei Linsen und des Evidenz-Systems: Perspektiven-Advisors sind
+meinungsstarke Sparringspartner mit einer sehr spezifischen Sicht auf Produkte. Ihre Urteile
+sind **Taste als Provokation**, keine Beweise; sie erzeugen Hypothesen und Härtetests, die der
+Loop dann mit Evidenz prüft. Nutzen auf Zuruf, als harter Kritiker vor einem Gate oder als
+Brainstorming-Partner.
+
+| Advisor | Perspektive |
+|---|---|
+| `jobs-advisor` | Denkweise von Steve Jobs: kompromisslose Einfachheit, Fokus durch Weglassen, Erlebnis vor Technologie, Weltklasse-Anspruch an Details. Kritisiert in vier Schritten (das Eine, die Streichliste, das Detail, das Verdikt) und brainstormt subtraktiv (10x statt 10 %) |
+
 ## Aufbau
 
 ```
 claude-design-toolkit/
 ├── .claude-plugin/          plugin.json + marketplace.json (Claude-Code-Plugin)
 ├── skills/                  Onboarding + Design-Loop (9 Skills)
-├── agents/                  6 read-only Advisors
+├── agents/                  6 Linsen-Advisors + Perspektiven-Add-ons (read-only)
 └── docs/                    WORKFLOW.md, _audit-standards.md, settings.json
                              + Template-Stubs: PROJECT-CONTEXT.md, _ux-reference.md,
                                _content-guidelines.md (die 3 PROJEKTSPEZIFISCHEN Dateien)
@@ -110,6 +123,7 @@ Beispiele) lebt im jeweiligen Projekt-Workspace.
 
 | Advisor | Linse | Fokus |
 |---|---|---|
+| `jobs-advisor` | Add-on (Perspektive) | Steve-Jobs-Denkweise als Kritiker & Brainstorming-Partner: Einfachheit, Fokus, Detail-Anspruch (Taste als Provokation, kein Beweis) |
 | `ux-advisor` | Desirability | UX-Entscheidungen, a11y (Pflicht-Baseline), Heuristiken, Verhaltensdaten |
 | `research-advisor` | Desirability | Heuristik-/Experten-Audit des Ist-Produkts nach `_audit-standards.md` (4 Lenses), opt. Live-Walkthrough |
 | `content-advisor` | Desirability | Copy/Microcopy/Tonalität gegen Content-Guidelines, i18n-Längen |
@@ -142,6 +156,7 @@ Bedarf ein **eigenes Plugin**.
 - [ ] **Übersetzung auf Englisch** (alle Skills, Advisors, Docs), Voraussetzung fürs Public-Schalten
 - [ ] **Vokabular-Migration mit dem EN-Pass**: Dev-Sprache aus den Skill-Inhalten („Spec" → „Design Brief", ggf. Skill-Umbenennung `/spec-design` → `/design-brief`, Artefakt-Namen)
 - [ ] Repo **public** schalten (nach EN-Übersetzung + finalem Review)
+- [ ] **Zwiegespräch-Add-on: Steve Jobs × Jony Ive.** Zwei Perspektiven-Advisors im Dialog, die eine Design-Frage untereinander abwägen (Jobs: Fokus/Verdikt, Ive: Material/Form/Care) und dem User das destillierte Für/Wider liefern (beschlossen, kommt später)
 - [ ] Nachschärfen: Advisors explizit als Desirability/Feasibility/Viability-Panel framen (auch in den Agent-Beschreibungen)
 - [ ] Nachschärfen: Test-/Eval-Checkliste neu aufsetzen (plugin-basiert statt Kopier-Installation)
 - [ ] Eval: Kit einmal in einem fremden Projekt durchspielen und Reibungspunkte fixen
