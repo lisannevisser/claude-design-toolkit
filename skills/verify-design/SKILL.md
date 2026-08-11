@@ -8,7 +8,7 @@ argument-hint: "[feature]"
 
 Design-Track (Figma). Prüft das **finale Design** gegen die Spec und das **messbare Research-Ziel**
 (kein Test-Suite-Lauf — der gehört in den Dev-Prozess; kein Dev-Handoff — das ist `handoff-design`).
-Antworte auf Deutsch.
+Antworte in der in `.claude/PROJECT-CONTEXT.md` hinterlegten Arbeitssprache; fehlt der Eintrag, in der Sprache, in der der User schreibt.
 
 Feature: **`$ARGUMENTS`**.
 

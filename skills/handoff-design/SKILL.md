@@ -9,7 +9,7 @@ argument-hint: "[feature]"
 Design-Track (Figma). **Bewusst vom Design-Loop entkoppelt:** Exploration und Verifikation sollen
 nicht unter dev-ready-Druck stehen. Dieser Schritt läuft **nur, wenn ein abgenommenes Design an
 die Entwicklung übergeht**. Hier entsteht **kein** Design mehr — es wird aus dem **gebauten**
-Design abgeleitet. Antworte auf Deutsch.
+Design abgeleitet. Antworte in der in `.claude/PROJECT-CONTEXT.md` hinterlegten Arbeitssprache; fehlt der Eintrag, in der Sprache, in der der User schreibt.
 
 Feature: **`$ARGUMENTS`**.
 

@@ -21,7 +21,7 @@ härtet bis ~90 %.
 
 | Phase | Skill | Output | Kern |
 |---|---|---|---|
-| ⓪ Research | `research-design` | `RESEARCH.md` | Daten + **Heuristik-Audit** synth.; Baseline/Ziel; **Lücken**; erste Hypothesen. Survey mit „weiß nicht", **kein** Gate |
+| ⓪ Research | `research-design` | `RESEARCH.md` (+ `AUDIT.md`/`AUDIT.html`) | Daten + **Heuristik-Audit** synth.; Baseline/Ziel; **Lücken**; erste Hypothesen. Survey mit „weiß nicht", **kein** Gate |
 | ① Brainstorm | `brainstorm-design` | `BRAINSTORM.md` | Hypothesen priorisieren/schärfen; **Survey bis ~90 %** (das eine Gate) |
 | ② Spec | `spec-design` | `SPEC.md` | **Problem + Constraints** (nicht die Lösung) |
 | ③ Explore | `explore-design` | `EXPLORE.md` (+ `explore/`) | **schnelle HTML-Richtungen** auf Vergleichs-Canvas, vergleichen, wählen |
@@ -57,7 +57,9 @@ Der Design-Loop ist **vollständig standalone**. Soll ein abgenommenes Design in
 Frühe Phasen (⓪–③) sind UX-/Research-lastig:
 - **`ux-advisor`** — UX-Entscheidungs-Richter: a11y (Pflicht-Baseline), Heuristiken, Clarity.
 - **`research-advisor`** — Discovery-Auditor: Heuristik-/Experten-Audit des Ist-Produkts nach
-  `_audit-standards.md` (4 Lenses, Severity, AUDIT.md), optional Live-Walkthrough per Browser (Phase ⓪).
+  `audit-standards.md` (Lenses inkl. Projekt-Lenses, Severity, AUDIT.md + interaktiver Pin-Report
+  AUDIT.html; kanonisch im `research-design`-Skill-Ordner, Projekt-Kopie via Setup), optional
+  Live-Walkthrough per Browser (Phase ⓪).
 - **`content-advisor`** — Copy/Microcopy/Tonalität gegen Content-Guidelines, i18n-Längen.
 - **`conversion-advisor`** — CRO-/Trust-Linse, an den messbaren Research-Zielen verankert.
 - **`ds-architecture-advisor`** — Design-System-Architektur, Library-Pflege, Token-Migration.
@@ -70,6 +72,7 @@ Frühe Phasen (⓪–③) sind UX-/Research-lastig:
 specs/briefing.md · specs/roadmap.md            (Projekt-Vorbau)
 docs/redesign/<item>/
 ├── RESEARCH.md    (Phase 0)
+├── AUDIT.md + AUDIT.html  (Phase 0, Heuristik-Audit + interaktiver Pin-Report)
 ├── BRAINSTORM.md  (Phase 1)
 ├── SPEC.md        (Phase 2)
 ├── EXPLORE.md  + explore/ (HTML-Prototypen + Canvas)   (Phase 3)

@@ -8,7 +8,7 @@ argument-hint: "[optional: max-items]"
 
 Einmaliger Projekt-Vorbau des Design-Tracks. Output ist `specs/roadmap.md` — das **geteilte
 Rückgrat**: jedes Item durchläuft erst den Design-Loop und (optional, später) den Code-Loop.
-Antworte auf Deutsch.
+Antworte in der in `.claude/PROJECT-CONTEXT.md` hinterlegten Arbeitssprache; fehlt der Eintrag, in der Sprache, in der der User schreibt.
 
 ## Harte Vorbedingung — Briefing muss existieren
 Suche `specs/briefing.md`. **Fehlt es, lege es zuerst gemeinsam mit dem User an** (kurzes

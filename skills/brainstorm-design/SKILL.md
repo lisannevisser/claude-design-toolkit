@@ -7,7 +7,7 @@ argument-hint: "[feature/roadmap-item]"
 # Phase 1/5 — Brainstorm (Design-Track): Hypothesen härten bis ~90%
 
 Design-Track (Figma). Output ist ein gehärtetes Hypothesen-Dokument. Hier wird **priorisiert und
-committet**, was `research-design` roh geliefert hat. Antworte auf Deutsch.
+committet**, was `research-design` roh geliefert hat. Antworte in der in `.claude/PROJECT-CONTEXT.md` hinterlegten Arbeitssprache; fehlt der Eintrag, in der Sprache, in der der User schreibt.
 
 Feature: **`$ARGUMENTS`**. Ist `$ARGUMENTS` leer/unklar, frage über `AskUserQuestion` nach.
 

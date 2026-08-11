@@ -9,7 +9,7 @@ argument-hint: "[feature/roadmap-item]"
 Design-Track. Hier wird **divergiert, bevor konvergiert wird**. Bewusst zuerst **schnelle,
 interaktive HTML-Prototypen** statt Figma: sie geben in Minuten erstes Feedback, schaffen
 Sicherheit und prüfen, ob wir auf dem richtigen Weg sind. Das **finale** Design entsteht danach in
-Figma (`implement-design`). Antworte auf Deutsch.
+Figma (`implement-design`). Antworte in der in `.claude/PROJECT-CONTEXT.md` hinterlegten Arbeitssprache; fehlt der Eintrag, in der Sprache, in der der User schreibt.
 
 > **Credit:** Der Prototyp-Canvas-Ansatz (mehrere HTML-Varianten auf Tabs + Live-Regler via
 > CSS-Variablen/`postMessage`) ist inspiriert von **dan-carino/design-directions-skill**

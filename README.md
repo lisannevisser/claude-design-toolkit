@@ -24,7 +24,7 @@ Der Loop ist Design Thinking mit einem schriftlichen Define-Artefakt:
 |---|---|---|
 | (Onboarding) | `/setup-design-workspace` | gefüllte Kontextdateien + `research/`-Inventar |
 | (Rahmen) | `/roadmap` | priorisierte Roadmap, nur Probleme, keine Lösungen |
-| **Empathize** | `/research-design` | `RESEARCH.md` + `AUDIT.md`: Insights, Lücken, Baseline, messbares Ziel |
+| **Empathize** | `/research-design` | `RESEARCH.md` + `AUDIT.md` + interaktiver Pin-Report `AUDIT.html`: Insights, Lücken, Baseline, messbares Ziel |
 | **Define** | `/brainstorm-design` + `/spec-design` | gehärtete Hypothesen + **Design Brief** (Problem, Scope, Erfolgskriterien) |
 | **Ideate + Prototype** (divergent) | `/explore-design` | 2–3 HTML-Prototyp-Richtungen auf einem Vergleichs-Canvas |
 | **Prototype** (hi-fi) | `/implement-design` | finales Design in Figma, DS-treu |
@@ -60,8 +60,12 @@ Brainstorming-Partner.
 claude-design-toolkit/
 ├── .claude-plugin/          plugin.json + marketplace.json (Claude-Code-Plugin)
 ├── skills/                  Onboarding + Design-Loop (9 Skills)
+│   └── research-design/     bündelt audit-standards.md — den verbindlichen Audit-Standard
+│                            (liegt IM Skill-Ordner, damit er in Claude Code UND claude.ai
+│                            verfügbar ist; Setup kopiert ihn als .claude/_audit-standards.md
+│                            ins Projekt, dort um Projekt-Lenses erweiterbar)
 ├── agents/                  6 Linsen-Advisors + Perspektiven-Add-ons (read-only)
-└── docs/                    WORKFLOW.md, _audit-standards.md, settings.json
+└── docs/                    WORKFLOW.md, settings.json
                              + Template-Stubs: PROJECT-CONTEXT.md, _ux-reference.md,
                                _content-guidelines.md (die 3 PROJEKTSPEZIFISCHEN Dateien)
 ```
@@ -177,9 +181,9 @@ Advisors ein); Agents ändern nie etwas, Skills schon.
 
 ### Templates & Referenzdocs (`docs/`)
 
-`WORKFLOW.md` (voller Ablauf) · `_audit-standards.md` (neutraler Audit-Standard) ·
-Template-Stubs `PROJECT-CONTEXT.md`, `_ux-reference.md`, `_content-guidelines.md` ·
-`settings.json`
+`WORKFLOW.md` (voller Ablauf) · Template-Stubs `PROJECT-CONTEXT.md`, `_ux-reference.md`,
+`_content-guidelines.md` · `settings.json`. Der neutrale Audit-Standard
+(`audit-standards.md`) lebt im `research-design`-Skill-Ordner (s. Aufbau).
 
 ## Für Devs
 
@@ -197,6 +201,10 @@ Bedarf ein **eigenes Plugin**.
 - [x] Onboarding-Verhalten: Skills/Advisors fragen aktiv nach, wenn Projekt-Kontextdateien fehlen
 - [x] `/setup-design-workspace`: strukturiertes Quellen-Interview bei Projektstart (Tracking, A/B, Competitor-Analysen, Anbindungen)
 - [x] Dev-Erbe ausgelagert: Code-Track entfernt (Git-Tag `code-track-archive`), Positionierung auf Design-Loop geschärft
+- [x] **Audit-Standards portabel**: `audit-standards.md` lebt jetzt im `research-design`-Skill-Ordner (verfügbar in Claude Code **und** claude.ai — vorher zeigten Skill + Advisors auf ein nie ins Projekt kopiertes `.claude/_audit-standards.md`, wodurch Audits auf WCAG-only zusammenschrumpften); Setup kopiert sie ins Projekt
+- [x] **Interaktiver Pin-Report `AUDIT.html`** als Pflicht-Deliverable spezifiziert (nummerierte, klickbare Pins nach Severity; identisch in Chat als Artefakt und in Code als Datei)
+- [x] **Projekt-Lenses**: Onboarding fragt nach eigenen Audit-Perspektiven (eigene heuristische Sets / Projektbedürfnisse), Audits wenden sie zusätzlich zu den 4 Kern-Lenses an
+- [x] **Sprachagnostik**: harte „Antworte auf Deutsch"-Anweisung entfernt; Onboarding erfragt Arbeitssprache(n) (mehrere/gemischt erlaubt) und ggf. abweichende Produktsprache → `PROJECT-CONTEXT.md`
 - [ ] **Übersetzung auf Englisch** (alle Skills, Advisors, Docs), Voraussetzung fürs Public-Schalten
 - [ ] **Vokabular-Migration mit dem EN-Pass**: Dev-Sprache aus den Skill-Inhalten („Spec" → „Design Brief", ggf. Skill-Umbenennung `/spec-design` → `/design-brief`, Artefakt-Namen)
 - [ ] Repo **public** schalten (nach EN-Übersetzung + finalem Review)
@@ -204,6 +212,17 @@ Bedarf ein **eigenes Plugin**.
 - [ ] Nachschärfen: Advisors explizit als Desirability/Feasibility/Viability-Panel framen (auch in den Agent-Beschreibungen)
 - [ ] Nachschärfen: Test-/Eval-Checkliste neu aufsetzen (plugin-basiert statt Kopier-Installation)
 - [ ] Eval: Kit einmal in einem fremden Projekt durchspielen und Reibungspunkte fixen
+- [ ] **Präsentations-Output für Ergebnis-Reports** (v. a. Audit-Zusammenfassung): Der
+  Markdown-Report bleibt die kanonische Quelle (lebt im Repo, ist zugleich der Confluence-Output),
+  aber als zusätzliche Option soll eine **Präsentation** erzeugt werden können — Confluence-Seiten
+  werden ungern gelesen, das Präsentationsformat hat sich im Test bewährt. Gestaltungs-Standards
+  dafür **nicht selbst definieren**, sondern auf externe Skills stützen; Recherche (2026-08)
+  ergab: **`figma-use-slides`** (offizieller Figma-Skill, erzeugt echte Figma-Slides-Decks inkl.
+  Themes/Sections/Speaker-Notes — bevorzugt), **Anthropic-`pptx`-Skill**
+  (github.com/anthropics/skills, bringt eigene Farb-/Typo-/Layout-Standards mit — PowerPoint-
+  Fallback) und **`frontend-slides`** (github.com/zarazhangrui/frontend-slides, HTML-Decks mit
+  kuratierten Themes). Eigenanteil des Kits: nur die Inhaltsstruktur des Decks (welche Slides,
+  welche Findings), das Design-Handwerk liefern die externen Skills
 - [ ] Code-Kit als eigenes Plugin aus dem Tag `code-track-archive` heben, wenn gebraucht
 
 ## Credits

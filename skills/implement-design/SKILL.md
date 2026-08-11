@@ -9,7 +9,7 @@ argument-hint: "[feature]"
 Design-Track (Figma). Hier wird die **gewählte Richtung** aus der Exploration **final** in Figma
 gebaut — sauber, vollständig, mit dem neuen Designsystem. Hier wird in Figma gebaut, nicht in Code
 (das gehört in den Dev-Prozess). **Der Dev-Handoff ist bewusst ausgelagert** (→ `handoff-design`),
-damit das finale Design nicht unter dev-ready-Druck entsteht. Antworte auf Deutsch.
+damit das finale Design nicht unter dev-ready-Druck entsteht. Antworte in der in `.claude/PROJECT-CONTEXT.md` hinterlegten Arbeitssprache; fehlt der Eintrag, in der Sprache, in der der User schreibt.
 
 Feature: **`$ARGUMENTS`**.
 

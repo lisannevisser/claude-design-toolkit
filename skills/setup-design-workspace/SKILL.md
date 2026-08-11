@@ -9,7 +9,8 @@ argument-hint: "[optional: projektname]"
 Einmalig pro Projekt (wiederholbar: bei erneutem Aufruf nur die Deltas erfragen). Ziel: **so viele
 Referenzen wie möglich von Anfang an registrieren**, damit der Design-Loop ab Tag 1 mit Evidenz
 arbeitet und niemand daran denken muss, Quellen nachzureichen — unabhängig vom Erfahrungslevel.
-Antworte in der Sprache des Users.
+Antworte in der Sprache des Users; sobald das Interview (Block E) eine Arbeitssprache festlegt,
+in dieser.
 
 ## Schritt 1 — Bestandsaufnahme (nichts doppelt fragen)
 Prüfe, was schon existiert, und frage **nur nach den Lücken**:
@@ -50,15 +51,34 @@ Antworten sofort notieren, nichts erfinden.
 - Heatmaps / Session-Recordings / Funnel-Daten? (Exporte oder Tool-Zugang)
 - Frühere Audits, Support-Tickets, App-Store-/Shop-Reviews? (indirekte Nutzersignale)
 
+**Block E — Sprache & Perspektiven**
+- **Arbeitssprache(n)?** In welcher Sprache (oder welchen Sprachen) will der User arbeiten und
+  Antworten/Artefakte bekommen? **Mehrere sind erlaubt**, auch gemischt (z. B. Deutsch + Englisch).
+  Als Recommended-Option die Sprache vorschlagen, in der der User gerade schreibt. Das Kit selbst
+  ist sprachagnostisch — nichts ist fest auf eine Sprache eingestellt.
+- **Produkt-/Content-Sprache?** Falls abweichend von der Arbeitssprache (z. B. auf Deutsch
+  arbeiten, aber das Produkt ist englisch): getrennt festhalten — Reports/Dialog in der
+  Arbeitssprache, produktnahe Artefakte (Copy, Prototypen-Texte) in der Produktsprache.
+- **Eigene Audit-Perspektive (Projekt-Lens)?** Soll das Audit zusätzlich zu den 4 Kern-Lenses
+  eine eigene Perspektive anwenden — ein anderes heuristisches Set (z. B. ISO 9241-110,
+  Shneiderman) oder ein Bedürfnis aus dem Projekt heraus (z. B. Regulatorik, Senior-Tauglichkeit)?
+  Je gewünschter Lens erfragen: **Name · Quelle/Referenz · worauf sie prüft**.
+
 ## Schritt 3 — Ergebnisse verankern (Quellen verlinken statt duplizieren)
 1. Die 3 Kontextdateien aus den Templates füllen (Templates liegen im design-toolkit-Plugin
    unter `docs/`): `PROJECT-CONTEXT.md` (Stack, Pfade, Quellen-Links, Tools, Constraints,
-   Akzeptanz-Defaults) · `_ux-reference.md` (nur falls kein DS verlinkbar) ·
-   `_content-guidelines.md` (nur falls keine Guidelines verlinkbar).
-2. `research/` anlegen mit **`research/README.md` als Quellen-Inventar**: Tabelle
+   Akzeptanz-Defaults, **Arbeitssprache(n) + ggf. Produktsprache** aus Block E) ·
+   `_ux-reference.md` (nur falls kein DS verlinkbar) · `_content-guidelines.md` (nur falls keine
+   Guidelines verlinkbar).
+2. **Audit-Standards ins Projekt kopieren:** `audit-standards.md` aus dem design-toolkit-Plugin
+   (liegt neben der `research-design`-SKILL.md, `skills/research-design/audit-standards.md`) als
+   `.claude/_audit-standards.md` ablegen. Wurden in Block E **Projekt-Lenses** genannt, sie dort
+   im Abschnitt „Projekt-Lenses" eintragen (Name · Quelle · Prüffokus). Diese Kopie ist die Datei,
+   die Advisors und Audits im Projekt lesen.
+3. `research/` anlegen mit **`research/README.md` als Quellen-Inventar**: Tabelle
    *Quelle · Status (vorhanden/angebunden/Lücke) · Ort/Zugang · Notiz*. Lücken sind
    **erstklassige Einträge**, keine Fußnoten.
-3. Gewünschte Anbindungen umsetzen oder als To-do mit Ansprechpartner festhalten.
+4. Gewünschte Anbindungen umsetzen oder als To-do mit Ansprechpartner festhalten.
 
 ## Schritt 4 — Abschluss-Report
 Kurz zusammenfassen: **registriert** (mit Links) · **angebunden** (Tools/Connectors) ·

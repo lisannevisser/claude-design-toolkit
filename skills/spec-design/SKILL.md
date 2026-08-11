@@ -8,8 +8,9 @@ argument-hint: "[feature]"
 
 Design-Track (Figma). Output ist ein **Design Brief** (Design-Spec), kein technisches Dev-Dokument.
 **Wichtig:** Die Spec definiert das **Problem + die Constraints + die Erfolgskriterien** — sie
-schreibt **nicht** die visuelle Lösung vor. Die entsteht divergent in `explore-design`. Antworte
-auf Deutsch.
+schreibt **nicht** die visuelle Lösung vor. Die entsteht divergent in `explore-design`. Antworte in der in
+`.claude/PROJECT-CONTEXT.md` hinterlegten Arbeitssprache; fehlt der Eintrag, in der Sprache, in der
+der User schreibt.
 
 Feature: **`$ARGUMENTS`**.
 

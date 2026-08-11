@@ -8,7 +8,9 @@ argument-hint: "[feature/roadmap-item]"
 
 Erste Phase des **Design-Tracks** (Figma). Ziel: die UX-Arbeit auf **Daten und Evidenz** stellen
 **und bewusst machen, was wir NICHT wissen**. Output ist ein Research-Dokument mit Insights,
-**Lücken**, messbarer Baseline/Ziel und ersten Hypothesen. Antworte auf Deutsch.
+**Lücken**, messbarer Baseline/Ziel und ersten Hypothesen. Antworte in der in
+`.claude/PROJECT-CONTEXT.md` hinterlegten Arbeitssprache; fehlt der Eintrag, in der Sprache,
+in der der User schreibt.
 
 Feature: **`$ARGUMENTS`**. Ist `$ARGUMENTS` leer/unklar, frage über `AskUserQuestion` nach, welcher
 Redesign-Bereich (idealerweise ein Item aus `specs/roadmap.md`) gemeint ist.
@@ -50,13 +52,17 @@ gewählten Modus oben in `RESEARCH.md` als **`Modus: Express|Full`** festhalten 
    Material/Code arbeiten (keine Fragerunde). Dann die vorhandenen Daten synthetisieren: was sagen sie über
    **Friktion** (Drop-off, Rage-/Dead-Clicks, Abbruchstellen, Fehlerraten)? Strikt **belegt** vs.
    **angenommen** trennen.
-2. **Ist-Produkt auditieren → eigener Report `AUDIT.md`** — `research-advisor` rufen (Heuristik-/
-   Experten-Audit, a11y-Erstcheck, Friction-Inventar; optional Live-Walkthrough per Browser). Bei
-   Bezahl-/Entscheidungs-Strecken zusätzlich `conversion-advisor`. **Sind die Advisors nicht
-   registriert, das Audit inline mit denselben Kriterien durchführen** und das vermerken. Den Audit
-   als **eigenständigen Report** `docs/redesign/$ARGUMENTS/AUDIT.md` **im Format von
-   `.claude/_audit-standards.md`** ablegen (4 Lenses, Severity-Skala, Findings nach Severity, je
-   Finding `file:line`/Node-ID/Screenshot); `RESEARCH.md` referenziert/synthetisiert ihn.
+2. **Ist-Produkt auditieren → eigene Reports `AUDIT.md` + `AUDIT.html`** — **zuerst den
+   verbindlichen Standard lesen: `audit-standards.md` direkt neben dieser SKILL.md** (Lenses,
+   Severity-Skala, Befund-Format, Report-Struktur, Pin-Report). Existiert im Projekt eine Kopie
+   `.claude/_audit-standards.md` (legt `/setup-design-workspace` an, ggf. mit Projekt-Lenses),
+   hat sie Vorrang. Dann `research-advisor` rufen (Heuristik-/Experten-Audit, a11y-Erstcheck,
+   Friction-Inventar; optional Live-Walkthrough per Browser). Bei Bezahl-/Entscheidungs-Strecken
+   zusätzlich `conversion-advisor`. **Sind die Advisors nicht registriert (z. B. in Claude Chat),
+   das Audit inline nach demselben Standard durchführen** und das vermerken. Ablage: **Markdown-
+   Report** `docs/redesign/$ARGUMENTS/AUDIT.md` (Findings nach Severity, je Finding
+   `file:line`/Node-ID/Screenshot) **plus interaktiver Pin-Report `AUDIT.html`** (Pflicht, s.
+   Standard; in Claude Chat als Artefakt); `RESEARCH.md` referenziert/synthetisiert sie.
 3. **Gestufter Intake** — fehlende Stufe ist eine **Lücke**, kein Blocker: a11y (Pflicht-Baseline),
    Heuristiken (immer), Verhaltensdaten/Audits/Interviews (aus `research/`, falls vorhanden).
    Fehlen harte Zahlen, dürfen `WebSearch`/`WebFetch` Benchmarks liefern (als „angenommen" markieren).
@@ -84,9 +90,10 @@ und protokolliere Frage + Antwort im Q&A-Log von RESEARCH.md, um die Evidenz-Lan
 Ziel ist **nicht** Antwort-Sicherheit, sondern **Bewusstsein**: was wissen wir belegt, was nicht.
 Halte eine Zeile **`Evidenz-Abdeckung: NN%`** (wie gut ist die Landschaft kartiert) + kurzes Log.
 
-## Output — `docs/redesign/$ARGUMENTS/RESEARCH.md` (+ `AUDIT.md`)
+## Output — `docs/redesign/$ARGUMENTS/RESEARCH.md` (+ `AUDIT.md` + `AUDIT.html`)
 - **`Modus: Express|Full`** (oben, mit 1-Satz-Begründung der Triage),
-- **`AUDIT.md`** — der eigenständige Heuristik-/Experten-Audit-Report (Quelle für die Insights).
+- **`AUDIT.md` + `AUDIT.html`** — der eigenständige Heuristik-/Experten-Audit-Report (Quelle für
+  die Insights) plus interaktiver Pin-Report nach `audit-standards.md`.
 - **Insights** (je Finding: Quelle + Severity; belegt vs. angenommen klar getrennt),
 - **Wissens-Lücken & Risiken** — *erstklassiger Abschnitt* (was fehlt, „weiß nicht"-Antworten),
 - **UX-Baseline + messbares Ziel** (Tabelle: Problem · Baseline · Ziel · Quelle),
