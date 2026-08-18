@@ -1,0 +1,13 @@
+{
+  "name": "lisanne-toolkit",
+  "owner": {
+    "name": "Lisanne Visser"
+  },
+  "plugins": [
+    {
+      "name": "design-toolkit",
+      "source": "./",
+      "description": "Spec-driven design workflow with design-loop skills and advisor subagents."
+    }
+  ]
+}
