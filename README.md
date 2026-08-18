@@ -11,7 +11,7 @@ prüfbaren Anker. Vier Zutaten machen das möglich, und sie sind der Kern dieses
 2. **Ein Verify-Schritt**, der jedes Ergebnis gegen diesen Anker hält (`/verify-design`).
 3. **Eine Rücksprungregel**: bei Fail zurück in die kleinste passende Phase, nicht auf Anfang.
 4. **Read-only-Kritiker**: sechs Linsen-Advisors, die den Loop mit Evidenz statt Geschmack
-   füttern (plus Perspektiven-Add-ons als bewusste Störimpulse, s. u.).
+   füttern (plus Perspektiven-Advisors als bewusste Störimpulse, s. u.).
 
 So kann der Loop konvergieren, statt endlos zu drehen, und Menschen mit unterschiedlichem
 Erfahrungslevel kommen zum gleichen, belegbaren Arbeitsstand.
@@ -42,17 +42,16 @@ Die Advisors decken die drei klassischen Design-Thinking-Linsen ab:
 Wichtige Grundregel der Feasibility-Linse: **Aufwand ist Information, kein Veto.** Fehlt einem
 Design ein technisches Feature, ist das ein Design-Auftrag, kein K.-o.-Kriterium.
 
-## Add-ons: Perspektiven-Advisors
+## Add-ons: Perspektiven-Advisors (separates Plugin)
 
 Bewusst **außerhalb** der drei Linsen und des Evidenz-Systems: Perspektiven-Advisors sind
-meinungsstarke Sparringspartner mit einer sehr spezifischen Sicht auf Produkte. Ihre Urteile
-sind **Taste als Provokation**, keine Beweise; sie erzeugen Hypothesen und Härtetests, die der
-Loop dann mit Evidenz prüft. Nutzen auf Zuruf, als harter Kritiker vor einem Gate oder als
-Brainstorming-Partner.
+meinungsstarke Persona-Kritiker und Sparringspartner mit einer sehr spezifischen Sicht auf
+Produkte. Ihre Urteile sind **Taste als Provokation**, keine Beweise; sie erzeugen Hypothesen
+und Härtetests, die der Loop dann mit Evidenz prüft. Nutzen auf Zuruf, als harter Kritiker vor
+einem Gate oder als Brainstorming-Partner.
 
-| Advisor | Perspektive |
-|---|---|
-| `jobs-advisor` | Denkweise von Steve Jobs: kompromisslose Einfachheit, Fokus durch Weglassen, Erlebnis vor Technologie, Weltklasse-Anspruch an Details. Kritisiert in vier Schritten (das Eine, die Streichliste, das Detail, das Verdikt) und brainstormt subtraktiv (10x statt 10 %) |
+Sie entstehen in einem **eigenen Plugin („Design Council", in Arbeit)** — eine wachsende
+Persona-Bibliothek, die dieses Toolkit an den passenden Stellen als Add-on empfiehlt.
 
 ## Aufbau
 
@@ -60,7 +59,7 @@ Brainstorming-Partner.
 claude-design-toolkit/
 ├── .claude-plugin/          plugin.json + marketplace.json (Claude-Code-Plugin)
 ├── skills/                  Onboarding + Design-Loop (9 Skills)
-├── agents/                  6 Linsen-Advisors + Perspektiven-Add-ons (read-only)
+├── agents/                  6 Linsen-Advisors (read-only)
 └── docs/                    WORKFLOW.md, _audit-standards.md, settings.json
                              + Template-Stubs: PROJECT-CONTEXT.md, _ux-reference.md,
                                _content-guidelines.md (die 3 PROJEKTSPEZIFISCHEN Dateien)
@@ -79,8 +78,6 @@ claude plugin marketplace add lisannevisser/claude-design-toolkit
 claude plugin install design-toolkit@lisanne-toolkit
 ```
 
-Solange das Repo privat ist, braucht die Maschine Git-Zugriff auf
-`github.com/lisannevisser/claude-design-toolkit` (SSH-Key oder `gh auth login`).
 Updates: neue Skills/Advisors hier pushen, dann `claude plugin update design-toolkit`.
 
 ## In einen Design-Workspace einsetzen
@@ -135,7 +132,7 @@ Damit klar ist, was dieses Repo eigentlich anbietet (und wann man was baut):
 | Baustein | Was es ist | Wann es das Richtige ist |
 |---|---|---|
 | **Skill** (`skills/`) | Ein abrufbarer **Prozess**: ein Schritt-für-Schritt-Rezept, das per `/name` in deiner Session läuft und dich bis zu einem definierten Ergebnis führt | Wiederholbarer Ablauf mit klarem Output, z. B. `/research-design` (Ablauf → `RESEARCH.md`) oder `/setup-design-workspace` (Interview → gefüllte Kontextdateien) |
-| **Agent** (`agents/`) | Eine **Perspektive**: ein Spezialist mit eigenem Kontextfenster und eigenen Tools, der von der Session oder aus einem Skill heraus gerufen wird, separat arbeitet und Findings zurückliefert | Ein Prüfblick oder Sparringspartner statt eines Ablaufs, z. B. alle Advisors. Der `jobs-advisor` ist deshalb ein Agent: man konsultiert ihn, man führt ihn nicht aus |
+| **Agent** (`agents/`) | Eine **Perspektive**: ein Spezialist mit eigenem Kontextfenster und eigenen Tools, der von der Session oder aus einem Skill heraus gerufen wird, separat arbeitet und Findings zurückliefert | Ein Prüfblick oder Sparringspartner statt eines Ablaufs, z. B. alle Advisors: man konsultiert sie, man führt sie nicht aus |
 | **Kontextdatei** (`.claude/` im Projekt) | **Wissen**: Fakten über dein Projekt (Stack, Tokens, Guidelines, Quellen), die Skills und Agents zuerst lesen | Alles, was projektspezifisch ist und sich nicht bei jedem Aufruf ändern soll |
 | **Artefakt** (`docs/redesign/…` im Projekt) | Ein **Ergebnis** des Loops: `RESEARCH.md`, Design Brief, `EXPLORE.md`, `VERIFY.md`. Der prüfbare Anker, gegen den iteriert wird | Entsteht durch die Skills; wird nie von Hand ins Kit geschrieben |
 
@@ -167,7 +164,6 @@ Advisors ein); Agents ändern nie etwas, Skills schon.
 
 | Advisor | Linse | Fokus |
 |---|---|---|
-| `jobs-advisor` | Add-on (Perspektive) | Steve-Jobs-Denkweise als Kritiker & Brainstorming-Partner: Einfachheit, Fokus, Detail-Anspruch (Taste als Provokation, kein Beweis) |
 | `ux-advisor` | Desirability | UX-Entscheidungen, a11y (Pflicht-Baseline), Heuristiken, Verhaltensdaten |
 | `research-advisor` | Desirability | Heuristik-/Experten-Audit des Ist-Produkts nach `_audit-standards.md` (4 Lenses), opt. Live-Walkthrough |
 | `content-advisor` | Desirability | Copy/Microcopy/Tonalität gegen Content-Guidelines, i18n-Längen |
@@ -193,14 +189,15 @@ Bedarf ein **eigenes Plugin**.
 
 ## Backlog / Ziele
 
-- [x] Entfirmung: alle firmenspezifischen Referenzen aus Skills/Advisors entfernt
 - [x] Onboarding-Verhalten: Skills/Advisors fragen aktiv nach, wenn Projekt-Kontextdateien fehlen
 - [x] `/setup-design-workspace`: strukturiertes Quellen-Interview bei Projektstart (Tracking, A/B, Competitor-Analysen, Anbindungen)
 - [x] Dev-Erbe ausgelagert: Code-Track entfernt (Git-Tag `code-track-archive`), Positionierung auf Design-Loop geschärft
-- [ ] **Übersetzung auf Englisch** (alle Skills, Advisors, Docs), Voraussetzung fürs Public-Schalten
+- [ ] **Übersetzung auf Englisch** (alle Skills, Advisors, Docs), damit das Kit industrieweit nutzbar ist
 - [ ] **Vokabular-Migration mit dem EN-Pass**: Dev-Sprache aus den Skill-Inhalten („Spec" → „Design Brief", ggf. Skill-Umbenennung `/spec-design` → `/design-brief`, Artefakt-Namen)
-- [ ] Repo **public** schalten (nach EN-Übersetzung + finalem Review)
-- [ ] **Zwiegespräch-Add-on: Steve Jobs × Jony Ive.** Zwei Perspektiven-Advisors im Dialog, die eine Design-Frage untereinander abwägen (Jobs: Fokus/Verdikt, Ive: Material/Form/Care) und dem User das destillierte Für/Wider liefern (beschlossen, kommt später)
+- [ ] **Perspektiv-Kritik an den Gates anbieten**: An den Gates (Spec-Abnahme, Richtungswahl in `/explore-design`) aktiv die Persona-Kritik als Option anbieten und im Onboarding von `/setup-design-workspace` vorstellen (Discoverability). Die Personas (inkl. Steve Jobs) leben im separaten Design-Council-Plugin (eigenes Repo, in Arbeit); sobald es installierbar ist, wird die Empfehlung mit den Install-Kommandos hier verankert
+- [ ] **`/present-design`**: Loop-Artefakte (AUDIT, RESEARCH, VERIFY …) als Figma-Slides-Präsentation ausleiten; Kit-eigener Slide-Standard (`docs/_slides-template.md`) für konsistenten Look auch ohne Projekt-DS; `/setup-design-workspace` fragt nach vorhandenem Präsentationsdesign
+- [ ] **Looping-Architektur: Parallel-Fanout, Check-ins & Selbstkorrektur** — braucht eine eigene, konzentrierte Session; Vorüberlegungen in [`docs/_looping-notes.md`](docs/_looping-notes.md). Kern: (a) unabhängige Pakete parallel an Subagents (Audit ∥ Competitive-Analyse ∥ Daten-Synthese), (b) Check-ins und Loops entkoppeln — an Gates wird Feedback geholt, während andernorts weitergeloopt wird, damit nicht jede Richtungsentscheidung alles anhält, (c) **Claude als sein größter Kritiker**: Selbstkorrektur-Mikro-Loops (bauen → selbst prüfen → nachbessern) laufen autonom gegen den schriftlichen Anker, nur echte Entscheidungen und Gate-Ergebnisse gehen an den User, (d) nie lange Funkstille — nach jedem Rücklauf ein Zwischenbericht
+- [ ] **Fragebogen als Pflicht-Baustein des Loops ausbauen**: Chat-interaktiv bleibt der Default, aber jede Frage wird **immer parallel in der Markdown-Datei gespiegelt** (`QUESTIONS.md`-Abschnitt), sodass der User pro Runde wählen kann, ob er im Chat oder in der Datei antwortet. Das **90%-Gate ist nicht überspringbar — auch nicht im Express-Modus**: Express bleibt (bewusst fürs Tempo angelegt), stellt aber wenige, gezielte Fragen vor dem Start und behält das harte Gate; nur der Fragenumfang schrumpft, nie das Prinzip (`/brainstorm-design` entsprechend umbauen, dort entfällt der Loop bei Express bisher komplett). Mechanik: Runden-Prinzip (alle Fragen stellen, deren Voraussetzungen geklärt sind), Empfehlung pro Frage, Fakten selbst nachschlagen statt fragen — Entscheidungen immer dem User. Fehlende Daten (Traffic, Performance …) dürfen explizit als „nicht verfügbar" beantwortet werden, zählen dann als geklärt. Fragebogen-Momente an **mehreren Punkten** verankern, je mit eigenem Fokus: **Daten** (Analytics, Baselines), **User** (Zielgruppen, Verhalten, Research-Bestand), **Designsprache** (DS, Tokens, Markenregeln), **Repo-Kontext** (Code-Quellen, Zugänge). Ziel: die AI muss möglichst wenig raten, und der User lernt von Anfang an, Daten- und Userperspektive mitzudenken
 - [ ] Nachschärfen: Advisors explizit als Desirability/Feasibility/Viability-Panel framen (auch in den Agent-Beschreibungen)
 - [ ] Nachschärfen: Test-/Eval-Checkliste neu aufsetzen (plugin-basiert statt Kopier-Installation)
 - [ ] Eval: Kit einmal in einem fremden Projekt durchspielen und Reibungspunkte fixen
@@ -208,8 +205,8 @@ Bedarf ein **eigenes Plugin**.
 
 ## Credits
 
-- Der Loop-Ansatz stammt ursprünglich aus einem internen **Workshop zu Spec-Driven
-  Development**; hier vom Dev-Kontext gelöst und auf Design Thinking umgemünzt.
+- Der Loop-Ansatz ist inspiriert von einem **Workshop zu Spec-Driven Development**; für den
+  Design-Kontext von Grund auf neu entwickelt.
 - Der HTML-Prototyp-Canvas-Ansatz in `explore-design` (mehrere Varianten auf Tabs + Live-Regler)
   ist inspiriert von
   **[dan-carino/design-directions-skill](https://github.com/dan-carino/design-directions-skill)**,
